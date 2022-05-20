@@ -1,16 +1,23 @@
 function getNumbersFromString(numberString){
-    var regx = numberString.match(/-?\d+/g).map(Number);
-    return regx;
+
+    var numbers = numberString.match(/-?\d+/g).map(Number);
+    return numbers;
 }
 
-let Add = (numbers) => {
-    if (!numbers) 
-        return 0;
+let add_nos = (numbers) => {
+    if (!numbers) return 0;
     let numbersList = getNumbersFromString(numbers);
-    if (numbersList.length < 2)
-        return 0;
+    if (numbersList.length == 1)
+        throw new Error('Input is NOT ok')
     let res = 0;
-    numbersList.forEach(n=>res+=n);
+    let negatives = []
+    numbersList.forEach(n=>{
+        if(n < 0) negatives.push(n)
+        res+=n;
+    });
+    if (negatives.length) {
+        throw new Error('negatives not allowed ' + negatives.join(','));
+    }
     return res;
 }
-console.log(Add('\\:1\n2'))
+module.exports = add_nos

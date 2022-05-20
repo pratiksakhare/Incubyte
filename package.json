@@ -1,0 +1,21 @@
+{
+  "name": "incubyte",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@gitolite-as-alice:pratiksakhare/Incubyte.git"
+  },
+  "keywords": [
+    "Node"
+  ],
+  "author": "pratiksakhare",
+  "license": "ISC",
+  "devDependencies": {
+    "jest": "^28.1.0"
+  }
+}
