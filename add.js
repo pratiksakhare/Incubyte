@@ -1,23 +1,35 @@
-function getNumbersFromString(numberString){
+const getNumbersFromString = (numberString) => {
 
-    var numbers = numberString.match(/-?\d+/g).map(Number);
+    const numberRegEx = /-?\d+/g;
+    var numbers = numberString.match(numberRegEx).map(Number);
     return numbers;
 }
 
-let add_nos = (numbers) => {
-    if (!numbers) return 0;
+let addNumbersFromNumberString = (numbers) => {
+    //Handling Empty numberString 
+    if (!numbers) {
+        return 0;   
+    }
     let numbersList = getNumbersFromString(numbers);
+
+    //Handling single numberString
     if (numbersList.length == 1)
         throw new Error('Input is NOT ok')
-    let res = 0;
-    let negatives = []
-    numbersList.forEach(n=>{
-        if(n < 0) negatives.push(n)
-        res+=n;
+
+    let sum = 0;
+    let negativeNumbers = []
+    numbersList.forEach(n => {
+        if(n < 0) {
+            negativeNumbers.push(n)
+        }
+        sum += n;
     });
-    if (negatives.length) {
-        throw new Error('negatives not allowed ' + negatives.join(','));
+
+    //Handling negative numbers
+    if (negativeNumbers.length) {
+        throw new Error(`negatives not allowed ${negatives.join(',')}`);
     }
-    return res;
+    return sum;
 }
-module.exports = add_nos
+
+module.exports = addNumbersFromNumberString
