@@ -9,6 +9,4 @@ Test cases written in *add.spec.js*
 
 To test the application, 
 
-checkout to **test** branch
-
 use cmd - `npm run test`
